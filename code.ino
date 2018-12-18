@@ -1,25 +1,25 @@
 #include <Servo.h>
-int servoPin = 6;
+int servoPin = 6;                                 
 int PEN_DOWN = 0; 
 int PEN_UP = 90;  
 Servo penServo;
 
 float wheel_dia=62;     
 float wheel_base=111;    
-int steps_rev=512; 
+int steps_rev=512;                                     // steps per revolution
 int delay_time=2; 
 
 int L_stepper_pins[] = {2, 3, 4, 5};
 int R_stepper_pins[] = {8, 9, 10, 11};
 
-int fwd_mask[][4] =  {
+int fwd_mask[][4] =  {                                    // stepper motor forward phase
     {HIGH,LOW,LOW,HIGH},
     {LOW,LOW,HIGH,HIGH},
    {LOW,HIGH,HIGH,LOW},
    {HIGH,HIGH,LOW,LOW}
   };
 
-int rev_mask[][4] = {
+int rev_mask[][4] = {                                   // stepper motor backward phase
     {HIGH,HIGH,LOW,LOW},
     {LOW,HIGH,HIGH,LOW},
     {LOW,LOW,HIGH,HIGH},
@@ -159,7 +159,7 @@ void pendown(){
   delay(250);
 }
 
-void t(){
+void t(){                                   // Draw T letter
   penup();
   left(90);
   forward(50);
@@ -177,7 +177,7 @@ void t(){
   }
 
 
-void a(){
+void a(){                           //Draw A letter
   penup();
   left(75);
   pendown();
@@ -199,7 +199,7 @@ void a(){
   forward(50);
   }
 
-void square()
+void square()                                      //Draw square shape
 {
    for(int x=0; x<12; x++){  // SQUARE
     forward(100);
@@ -207,7 +207,7 @@ void square()
   }
   }
 
-void triangle()
+void triangle()                                      //Draw triangle shape
 {
    for(int x=0; x<9; x++){  // Triangle
     forward(100);
